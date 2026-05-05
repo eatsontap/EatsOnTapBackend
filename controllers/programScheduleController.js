@@ -431,6 +431,12 @@ const updateProgramSchedule = async (req, res) => {
             });
         }
 
+        //5.5 Socket handler
+        const io = req.app.get('socketio');
+        if (io) {
+            io.emit('update-program-schedule');
+        }
+
         // 6. Return the updated data back to the frontend
         return res.status(200).json({
             success: true,
