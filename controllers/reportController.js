@@ -1006,13 +1006,18 @@ const exportAllStudents = async (req, res, next) => {
             const wbBasic = new ExcelJS.Workbook();
             const wsBasic = wbBasic.addWorksheet('Basic Ed');
             
+            // 🟢 ALIGNED WITH MODEL: Added RFID, Academic Status, Claim Status, and Balance
             wsBasic.columns = [
                 { header: 'Student ID', key: 'studentID', width: 15 },
+                { header: 'RFID Tag', key: 'rfidTag', width: 15 },
                 { header: 'First Name', key: 'first_name', width: 20 },
                 { header: 'Middle Name', key: 'middle_name', width: 15 },
                 { header: 'Last Name', key: 'last_name', width: 20 },
                 { header: 'Section', key: 'section', width: 15 },
-                { header: 'Year', key: 'year', width: 10 }
+                { header: 'Year', key: 'year', width: 10 },
+                { header: 'Academic Status', key: 'academicStatus', width: 15 },
+                { header: 'Claim Status', key: 'temporaryClaimStatus', width: 15 },
+                { header: 'Credit Balance', key: 'temporaryCreditBalance', width: 15 }
             ];
             wsBasic.addRows(basicData);
 
@@ -1033,13 +1038,15 @@ const exportAllStudents = async (req, res, next) => {
             const wbHigher = new ExcelJS.Workbook();
             const wsHigher = wbHigher.addWorksheet('Higher Ed');
             
+            // 🟢 ALIGNED WITH MODEL: Added RFID, Academic Status, Claim Status, and Balance
             wsHigher.columns = [
                 { header: 'Student ID', key: 'studentID', width: 15 },
+                { header: 'RFID Tag', key: 'rfidTag', width: 15 },
                 { header: 'First Name', key: 'first_name', width: 20 },
                 { header: 'Middle Name', key: 'middle_name', width: 15 },
                 { header: 'Last Name', key: 'last_name', width: 20 },
                 { header: 'Program', key: 'program', width: 15 },
-                { header: 'Year', key: 'year', width: 10 }
+                { header: 'Year', key: 'year', width: 10 },
             ];
             wsHigher.addRows(higherData);
 
